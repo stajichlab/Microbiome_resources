@@ -1,6 +1,8 @@
 use strict;
 use warnings;
 
+# useful for post-processing UPARSE/UCHIME pipeline results
+
 my $head = <>;
 print $head;
 

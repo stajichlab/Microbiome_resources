@@ -1,5 +1,8 @@
 use strict;
 use warnings;
+
+# useful for processing UCHIME/UPARSE table results sorting by sum counts of columns
+#
 my $head = <>;
 chomp ($head);
 my ($idcol,@hdr) = split(/[,\t]/,$head);
