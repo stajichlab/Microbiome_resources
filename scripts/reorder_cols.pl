@@ -13,7 +13,7 @@ my $i = 0;
 my %cols = map { $_ => $i++ } @hdr;
 my @neworder = map { $_->[1] } 
                sort { $a->[0] <=> $b->[0] }
-               map { my ($id) = (/\D+\.(\d+)/);
+               map { my ($id) = (/[^\.]+\.(\d+)/);
 		     [ $id, $_] } @hdr;
 print join(",",$idcol, map { $hdr[$cols{$_}] } @neworder),"\n";
 while(<>) {
