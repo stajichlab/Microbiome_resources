@@ -13,7 +13,6 @@ REV=$PREFIX.R2.fna
 FWD=$PREFIX.R1.fna
 UNITEDB=/srv/projects/db/UNITE/v7/UNITEv7_sh_dynamic_s.fasta
 UNITETAX=/srv/projects/db/UNITE/v7/UNITEv7_sh_dynamic_s.tax
-#UNITEDB=/srv/projects/db/UNITE/v7/UNITEv7_sh_99_s.fasta
 
 # currently this pipeline is only going to process FWD reads
 
@@ -22,13 +21,13 @@ TAXOUT=qiime_ITS_taxa_summary
 
 #Pick OTUs against open ref ITS, use mutitthreaded where possible
 if [ ! -d $OUT ]; then
-if [ $CPU ]; then
-pick_open_reference_otus.py -i $FWD -o $OUT -s 0.1 -p $PWD/its_params.txt -r $UNITEDB \
- --suppress_align_and_tree --otu_picking_method uclust --parallel --jobs_to_start $CPU
-else
-pick_open_reference_otus.py -i $FWD -o $OUT -s 0.1 -p $PWD/its_params.txt -r $UNITEDB \
- --suppress_align_and_tree --otu_picking_method uclust
-fi
+    if [ $CPU ]; then
+	pick_open_reference_otus.py -i $FWD -o $OUT -s 0.1 -p $PWD/its_params.txt -r $UNITEDB \
+				    --suppress_align_and_tree --otu_picking_method uclust --parallel --jobs_to_start $CPU
+    else
+	pick_open_reference_otus.py -i $FWD -o $OUT -s 0.1 -p $PWD/its_params.txt -r $UNITEDB \
+				    --suppress_align_and_tree --otu_picking_method uclust
+    fi
 fi
 
 #Summarize OTUs table

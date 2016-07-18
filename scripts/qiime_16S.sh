@@ -14,11 +14,11 @@ OUT=qiime_16S_openref
 TAXOUT=qiime_16S_taxa_summary
 #Pick OTUs against open ref ITS
 if [ ! -d $OUT ]; then
-if [ $CPU ]; then
-pick_open_reference_otus.py -i $PWD/$FWD -o $PWD/$OUT -s 0.1 -p $PWD/16S_params.txt --otu_picking_method uclust --parallel --jobs_to_start $CPU
-else
-pick_open_reference_otus.py -i $PWD/$FWD -o $PWD/$OUT -s 0.1 -p $PWD/16S_params.txt --otu_picking_method uclust 
-fi
+    if [ $CPU ]; then
+	pick_open_reference_otus.py -i $PWD/$FWD -o $PWD/$OUT -s 0.1 -p $PWD/16S_params.txt --otu_picking_method uclust --parallel --jobs_to_start $CPU
+    else
+	pick_open_reference_otus.py -i $PWD/$FWD -o $PWD/$OUT -s 0.1 -p $PWD/16S_params.txt --otu_picking_method uclust 
+    fi
 fi
 
 #Summarize OTUs table
