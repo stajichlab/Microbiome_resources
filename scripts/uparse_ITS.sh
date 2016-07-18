@@ -26,7 +26,7 @@ if [ ! -f $OUT/${PREFIX}.readmap.uc ]; then
  usearch -usearch_global $REV -db $OUT/${PREFIX}.utax.fas \
  -strand plus -id 0.97 -uc $OUT/${PREFIX}.readmap.uc \
  -maxaccepts 8 -maxrejects 64 -top_hit_only
-perl -i -p -e 's/(ITS\.(\w+\.\d+)_\S+)/$1;barcodelabel=$2/' $OUT/${PREFIX}.readmap.uc
+perl -i -p -e 's/(ITS\.(\w+\d+)_\d+)/$1;barcodelabel=$2/' $OUT/${PREFIX}.readmap.uc
 fi
 
 if [ ! -f $OUT/${PREFIX}.OTU.tab ]; then
