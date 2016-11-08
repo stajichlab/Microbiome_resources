@@ -21,7 +21,7 @@ if [ ! -f $FWDNOCHIMERA ]; then
  if [ -f $REV.bz2 ]; then
    pbzip -d $REV.bz2
  elif [ ! -f $FWD ]; then
-  zcat ITS_R1/ITS.*.fa.gz | fasta_formatter | fastx_trimmer -f 26 > $FWD
+  zcat ITS_R1/ITS.*.fa.gz | fasta_formatter | fastx_trimmer -f 30 | fastx_trimmer -t 29 > $FWD
  fi
  vsearch -uchime_ref $FWD -db $UCHIMECHIMERA -strand plus -nonchimeras $FWDNOCHIMERA -threads $CPU
  pbzip2 $FWD
