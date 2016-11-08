@@ -35,7 +35,11 @@ fi
 if [ ! -f $OUT/${PREFIX}.readmap.uc ]; then
  vsearch --usearch_global $FWD --db $OUT/${PREFIX}.utax.fas \
  --strand plus -id 0.96 --uc $OUT/${PREFIX}.readmap.uc --maxaccepts 8 --maxrejects 64 --top_hits_only --threads $CPU
+<<<<<<< HEAD
 perl -i -p -e 's/(ITS\.(\w+\.\d+\w*)_\d+)/$1;barcodelabel=$2/' $OUT/${PREFIX}.readmap.uc
+=======
+perl -i -p -e 's/(ITS\.(\w+\.\d+\w?)_\d+)/$1;barcodelabel=$2/' $OUT/${PREFIX}.readmap.uc
+>>>>>>> 3db3cb5fca6ac740f1b8d624f799bd3aef3f1076
 fi
 
 if [ ! -f $OUT/${PREFIX}.OTU.tab ]; then
