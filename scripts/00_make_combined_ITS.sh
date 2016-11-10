@@ -1,6 +1,6 @@
 #PBS -l nodes=1:ppn=16,mem=8gb -j oe
 module load fastx_toolkit
-module load vsearch\
+module load vsearch
 # cutadapt is part of installed python
 
 # merge reads previously split by sample into super file, assume reads can be matched to sample by their ID, eg PREFIX_readnumber - our convention is PROJECT.SAMPLEID
