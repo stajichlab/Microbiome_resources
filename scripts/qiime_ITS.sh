@@ -52,4 +52,4 @@ fi
 biom summarize-table -i $OUT/otu_table_mc2_w_tax.biom > $PREFIX.FWDNOCHIMERA.biom_summarize.txt
 
 #Summarize Taxa from OTUs table
-summarize_taxa_through_plots.py -i $OUT/otu_table_mc2_w_tax.biom -o $TAXOUT -f
+#summarize_taxa_through_plots.py -i $OUT/otu_table_mc2_w_tax.biom -o $TAXOUT -f
