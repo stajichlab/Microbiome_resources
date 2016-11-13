@@ -3,13 +3,13 @@ CPU=$PBS_NP
 if [ ! $CPU ]; then
  CPU=2
 fi
+bash scripts/00_make_combined_ITS.sh
 module unload python
 module load qiime
 module load ncbi-blast/2.2.26
 source activate qiime
 
 # setup the input data - this concats the compressed files into a single file for fwd or rev reads
-#bash scripts/00_make_combined_ITS.sh
 PWD=`pwd`
 PREFIX=`basename $PWD`"_ITS"
 FWD=$PREFIX.R1.fna

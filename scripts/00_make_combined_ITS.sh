@@ -34,7 +34,7 @@ if [ ! -f $FWDNOCHIMERA ]; then
    fastq_to_fasta -Q33 < $FWDTRIM | fastx_trimmer -m $MINLEN > $FWDFA
  fi
  vsearch -uchime_ref $FWDFA -db $UCHIMECHIMERA -strand plus -nonchimeras $FWDNOCHIMERA -threads $CPU
- pbzip2 $FWDFA
+ pbzip2 $FWDFA $FWDTRIM $FWD
 fi
 
 # per https://docs.google.com/document/d/1b9sUBOhOzlJxvt6Uim3hQXwOghIhEKulREzoSv2nXlE/edit
@@ -49,5 +49,5 @@ if [ ! -f $REVNOCHIMERA ]; then
    fastq_to_fasta -Q33 < $REVTRIM | fastx_trimmer -m $MINLEN > $REVFA
  fi
  vsearch -uchime_ref $REVFA -db $UCHIMECHIMERA -strand plus -nonchimeras $REVNOCHIMERA -threads $CPU
- pbzip2 $REV
+ pbzip2 $REV $REVFA $REVTRIM
 fi
