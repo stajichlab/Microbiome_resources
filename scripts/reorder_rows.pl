@@ -16,7 +16,7 @@ while(<>) {
 sort { $a->[1] <=> $b->[1] }
 map {
     my $otu = -1;
-    if( $_->[0] =~ /OTU(\d+)/ ) {
+    if( $_->[0] =~ /\S+OTU(\d+)/ ) {
 	$otu = $1;
     } else {
 	warn("trying to match ",$_->[0],"\n");
